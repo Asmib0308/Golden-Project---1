@@ -17,17 +17,21 @@ class Form2 {
       textSize(60);
       fill(197, 57, 125);
       textFont("Georgia")
-      text("Hero",displayWidth/2 - 300 , displayHeight/2 - 200)
-      this.hero.position(displayWidth/2 - 260 , displayHeight/2 - 150);
+      text("Hero - ",displayWidth/2 - 300 , displayHeight/2 - 200)
+      this.hero.position(displayWidth/2 - 300 , displayHeight/2 - 150);
+      this.hero.size(250,25)
 
-      text("Heroine",displayWidth/2 + 50 , displayHeight/2 - 200)
-      this.heroine.position(displayWidth/2 + 100 , displayHeight/2 - 150);
+      text("Heroine - ",displayWidth/2 + 50 , displayHeight/2 - 200)
+      this.heroine.position(displayWidth/2 + 50 , displayHeight/2 - 150);
+      this.heroine.size(250,25)
 
-      text("Song",displayWidth/2 - 300 , displayHeight/2 - 20)
-      this.song.position(displayWidth/2 - 260 , displayHeight/2 + 40);
+      text("Song - ",displayWidth/2 - 300 , displayHeight/2 - 20)
+      this.song.position(displayWidth/2 - 300 , displayHeight/2 + 40);
+      this.song.size(250,25)
 
-      text("Movie",displayWidth/2 + 50 , displayHeight/2 - 20)
-      this.movie.position(displayWidth/2 + 100 , displayHeight/2 + 40);
+      text("Movie - ",displayWidth/2 + 50 , displayHeight/2 - 20)
+      this.movie.position(displayWidth/2 + 50 , displayHeight/2 + 40);
+      this.movie.size(250,25)
       pop()
 
       this.back.position(displayWidth/2 - 660, displayHeight/2 - 360);
@@ -40,13 +44,15 @@ class Form2 {
         this.heroine.hide();
         this.song.hide();
         this.movie.hide();
+
+        form.reappear()
           
       })
 
 
       textSize(30)
       fill(204, 36, 117)
-      text("Trivia about the movie",displayWidth/2 - 660, displayHeight/2 + 200)
+      text("Trivia about the movie : ",displayWidth/2 - 660, displayHeight/2 + 200)
 
     
 

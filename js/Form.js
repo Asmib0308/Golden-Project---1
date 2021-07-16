@@ -7,26 +7,21 @@ class Form {
     this.settings = createButton('settings');
     this.rules = createButton('rules');
   }
+   reappear(){
+     this.play.show();
+     this.offline.show();
+     this.input.show();     
+     this.settings.show();
+     this.rules.show();
 
+     hero.visible = true;
+     heroin.visible = true;
+     song.visible = true;
+     movie.visible = true;
+   }
 
   display(){
     this.input.position(displayWidth/2 - 660 , displayHeight/2 - 330);
-
-    hero = createSprite(displayWidth/2 - 115 , displayHeight/2 - 180)
-    hero.addImage(heroI)
-    hero.scale = 0.7;
-
-    heroin = createSprite(displayWidth/2 + 156 , displayHeight/2 - 190)
-    heroin.addImage(heroinI)
-    heroin.scale = 0.66;
-
-    song = createSprite(displayWidth/2 - 120 , displayHeight/2 - 60)
-    song.addImage(songI)
-    song.scale = 0.55;
-
-    movie = createSprite(displayWidth/2 + 135 , displayHeight/2 - 80)
-    movie.addImage(movieI)
-    movie.scale = 0.65;
 
     this.play.position(displayWidth/2 - 90, displayHeight/2 + 70);
     this.play.size(210,70)
@@ -37,6 +32,15 @@ class Form {
       this.input.hide();
       this.play.hide();
       this.offline.hide();
+      this.settings.hide();
+      this.rules.hide();
+
+      hero.visible = false;
+      heroin.visible = false;
+      song.visible = false;
+      movie.visible = false;
+
+      form2.back.show()
     })
 
     this.offline.position(displayWidth/2 - 50, displayHeight/2 + 160);
@@ -44,11 +48,21 @@ class Form {
     this.offline.style("textSize",100)
 
     this.offline.mousePressed(()=>{
+      gameState = 2;
+
       this.input.hide();
       this.play.hide();
       this.offline.hide();
       this.settings.hide();
       this.rules.hide();
+
+      hero.visible = false;
+      heroin.visible = false;
+      song.visible = false;
+      movie.visible = false;
+
+      players.reappear()
+
     })
     
     this.settings.position(displayWidth/2 - 100, displayHeight/2 + 330)
@@ -56,11 +70,20 @@ class Form {
     this.settings.style("textSize",20)
 
     this.settings.mousePressed(()=>{
+      gameState = 3;
+
       this.input.hide();
       this.play.hide();
       this.offline.hide();
       this.settings.hide();
       this.rules.hide();
+
+      hero.visible = false;
+      heroin.visible = false;
+      song.visible = false;
+      movie.visible = false;
+
+      settings.reappear()
     })
 
     this.rules.position(displayWidth/2 + 100, displayHeight/2 + 330);
@@ -68,18 +91,24 @@ class Form {
     this.rules.style("textSize",20)
 
     this.rules.mousePressed(()=>{
+      gameState = 4;
+
       this.input.hide();
       this.play.hide();
       this.offline.hide();
       this.settings.hide();
       this.rules.hide();
-      hero.destroy()
+
+      hero.visible = false;
+      heroin.visible = false;
+      song.visible = false;
+      movie.visible = false;
+
+      rules.reappear();
     })
 
 
-    line(displayWidth/2, displayHeight/2 - 230, displayWidth/2, displayHeight/2)
-    line(displayWidth/2 - 280, displayHeight/2 - 120, displayWidth/2 + 320, displayHeight/2 - 120)
+    
 
-    drawSprites();
   }
 }
