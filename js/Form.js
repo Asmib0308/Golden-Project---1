@@ -29,6 +29,8 @@ class Form {
    
     this.play.mousePressed(()=>{
       gameState = 1;
+      form2 = new Form2()
+      
       this.input.hide();
       this.play.hide();
       this.offline.hide();
@@ -39,9 +41,10 @@ class Form {
       heroin.visible = false;
       song.visible = false;
       movie.visible = false;
-
-      form2.back.show()
+      if(form2)
+       form2.back.show()
     })
+    
 
     this.offline.position(displayWidth/2 - 50, displayHeight/2 + 160);
     this.offline.size(135,45)
@@ -49,6 +52,8 @@ class Form {
 
     this.offline.mousePressed(()=>{
       gameState = 2;
+     
+   
 
       this.input.hide();
       this.play.hide();

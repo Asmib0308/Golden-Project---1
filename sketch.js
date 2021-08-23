@@ -2,15 +2,19 @@ var canvas, backgroundImage;
 
 var gameState = 0;
 var playerCount;
-
+var qid =1
 var form;
+var answer;
+
 var form2;
 var offline;
 var rules;
 var title,guru;
 var hero, heroin, song, movie;
 var points = 30;
+var db
 
+var flag = 0;
 
 function preload(){
   gameback = loadImage("img/4.png")
@@ -25,11 +29,11 @@ function preload(){
 
 function setup(){
   canvas = createCanvas(displayWidth, displayHeight);
+  db = firebase.firestore()
   form = new Form()
-  form2 = new Form2()
-  offline = new Players()
-  settings = new Settings()
-  rules = new Rules()
+  //offline = new Players()
+  //settings = new Settings()
+  //rules = new Rules()
 
 
   title = createSprite(displayWidth/2 + 20 , displayHeight/2 - 300)
@@ -75,21 +79,34 @@ function draw(){
     line(displayWidth/2 - 280, displayHeight/2 - 120, displayWidth/2 + 320, displayHeight/2 - 120)
    }  
   
-  if (gameState === 1){   
-   form2.display()
+   if(gameState === 1 ){
+    
+    form2.display()
+    form2.getDataHints()
+    form2.displayQuestions()
+    
   }
+  if (flag === 4){
+    flag = 0;
+    reset();
 
+  }
   if (gameState === 2){   
-    offline.display()
+    //offline.display()
    }
 
   if (gameState === 3){   
-  settings.display()
+  //settings.display()
   }
 
   if (gameState === 4){   
-  rules.display()
+//  rules.display()
   }
   
   drawSprites();
+}
+function reset(){
+  form2.show();
+  points += 20;
+  qid += 1;
 }
