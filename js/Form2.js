@@ -19,6 +19,7 @@ class Form2 {
       this.hint3 = createButton("hint1");
       this.hint4 = createButton("hint2");
       this.hintFlag = false
+      this.hintFlag2 = false
       this.clickFlag = 0;
       this.saveGame = createButton("Save Your Game")
       
@@ -89,8 +90,10 @@ class Form2 {
       this.song.hide();
       this.movie.hide();
       this.submit.hide()
-      form.reappear()
-        
+      this.hint3.hide()
+      this.hint4.hide()
+      this.saveGame.hide()
+      form.reappear()              
     })
 
     for (var q_id in this.localdb){
@@ -106,8 +109,11 @@ class Form2 {
       answer = new Answers (this.hero.value(),this.heroine.value(),this.song.value(),this.movie.value()) 
       this.hintFlag = false;
       this.hint3.show()
+      this.hintFlag2 = false;
+      this.hint4.show()
       this.clickFlag +=1
     })
+     
     if (this.clickFlag === 3){
       this.submit.attribute('disabled','')
       setInterval(()=>{
@@ -154,32 +160,35 @@ class Form2 {
     text("Trivia about the movie : ",displayWidth/2 - 660, displayHeight/2 + 200)
     line(displayWidth/2, displayHeight/2 - 250, displayWidth/2, displayHeight/2 + 110)
     line(displayWidth/2 - 340, displayHeight/2 - 80, displayWidth/2 + 365, displayHeight/2 - 80)
-
-    this.hint3.position(displayWidth/2 + 620 , displayHeight/2 - 200);
+   
+    
+      this.hint3.position(displayWidth/2 + 620 , displayHeight/2 - 200);
       this.hint3.style("color","purple")
-
       this.hint3.mousePressed(()=>{
-        this.hint3.hide()
-        this.hintFlag = true
-        
+        if(points >= 15){
+          this.hint3.hide()
+          points = points - 15
+          this.hintFlag = true        
+        }  
       })
-        if (this.hintFlag === true){
-          this.store()
-        }
-       
-      
+      if (this.hintFlag === true){
+        textSize(15);
+        text(this.hints.hint3,displayWidth/2 + 470 , displayHeight/2 - 200)
+      }
+            
       this.hint4.position(displayWidth/2 + 620 , displayHeight/2 - 160);
       this.hint4.style("color","purple")
-
-      this.hint4.mousePressed(()=>{
-        text(this.hints.hint4,displayWidth/2 + 620 , displayHeight/2 - 160)  
-        this.hint4.hide()      
+      this.hint4.mousePressed(()=>{ 
+        if(points>= 15){       
+          this.hint4.hide() 
+          points = points - 15 
+          this.hintFlag2 = true    
+        }
       })
-    
-  }
-  store(){
-    textSize(15);
-    text(this.hints.hint3,displayWidth/2 + 500 , displayHeight/2 - 200)
-    console.log("woohoo")
+      if (this.hintFlag2 === true){
+        textSize(15);
+        text(this.hints.hint4,displayWidth/2 + 470 , displayHeight/2 - 160)          
+        }
+      
   }
 }
