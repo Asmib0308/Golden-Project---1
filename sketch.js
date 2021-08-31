@@ -7,7 +7,6 @@ var form;
 var answer;
 
 var form2;
-var offline;
 var rules;
 var title,guru;
 var hero, heroin, song, movie;
@@ -31,7 +30,6 @@ function setup(){
   canvas = createCanvas(displayWidth, displayHeight);
   db = firebase.firestore()
   form = new Form()
-  //offline = new Players()
   //settings = new Settings()
   //rules = new Rules()
 
@@ -91,9 +89,6 @@ function draw(){
     reset();
 
   }
-  if (gameState === 2){   
-    //offline.display()
-   }
 
   if (gameState === 3){   
   //settings.display()

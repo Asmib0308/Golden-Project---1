@@ -27,8 +27,9 @@ class Answers{
     
     checkAnswers(){
         var heroname = this.hero.toUpperCase().trim()
-       
-        if(this.answers.hero===heroname){
+        var dbHero = this.answers.hero.toUpperCase().trim()
+
+        if(dbHero===heroname){
             form2.hero.hide();    
             form2.hero.value('')
             flag += 1

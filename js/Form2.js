@@ -16,6 +16,12 @@ class Form2 {
       this.localdb = [];
       this.localdb2 = []
       this.answers = []
+      this.hint3 = createButton("hint1");
+      this.hint4 = createButton("hint2");
+      this.hintFlag = false
+      this.clickFlag = 0;
+      this.saveGame = createButton("Save Your Game")
+      
     }
     
   async getData(){
@@ -98,8 +104,19 @@ class Form2 {
     this.submit.size(130,35);
     this.submit.mousePressed(async()=>{    
       answer = new Answers (this.hero.value(),this.heroine.value(),this.song.value(),this.movie.value()) 
+      this.hintFlag = false;
+      this.hint3.show()
+      this.clickFlag +=1
     })
-    
+    if (this.clickFlag === 3){
+      this.submit.attribute('disabled','')
+      setInterval(()=>{
+          this.submit.removeAttribute('disabled')
+          this.clickFlag = 0
+          console.log("works")
+        },60000)
+    }
+    this.saveGame.position(displayWidth/2 + 520, displayHeight/2 + 160)
   }
   
   displayQuestions(){
@@ -138,5 +155,31 @@ class Form2 {
     line(displayWidth/2, displayHeight/2 - 250, displayWidth/2, displayHeight/2 + 110)
     line(displayWidth/2 - 340, displayHeight/2 - 80, displayWidth/2 + 365, displayHeight/2 - 80)
 
+    this.hint3.position(displayWidth/2 + 620 , displayHeight/2 - 200);
+      this.hint3.style("color","purple")
+
+      this.hint3.mousePressed(()=>{
+        this.hint3.hide()
+        this.hintFlag = true
+        
+      })
+        if (this.hintFlag === true){
+          this.store()
+        }
+       
+      
+      this.hint4.position(displayWidth/2 + 620 , displayHeight/2 - 160);
+      this.hint4.style("color","purple")
+
+      this.hint4.mousePressed(()=>{
+        text(this.hints.hint4,displayWidth/2 + 620 , displayHeight/2 - 160)  
+        this.hint4.hide()      
+      })
+    
+  }
+  store(){
+    textSize(15);
+    text(this.hints.hint3,displayWidth/2 + 500 , displayHeight/2 - 200)
+    console.log("woohoo")
   }
 }
