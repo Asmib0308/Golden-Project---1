@@ -27,7 +27,7 @@ function preload(){
 }
 
 function setup(){
-  canvas = createCanvas(displayWidth, displayHeight);
+  canvas = createCanvas(windowWidth, windowHeight);
   db = firebase.firestore()
   form = new Form()
   //settings = new Settings()
