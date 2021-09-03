@@ -34,13 +34,13 @@ function setup(){
   //rules = new Rules()
 
 
-  title = createSprite(windowWidth/2 + 20 , windowHeight/2 - 200)
+  title = createSprite(windowWidth/2 + 20 , windowHeight/2 - 250)
   title.addImage(titleI)
   title.scale = 1.8;
   
   guru = createSprite(windowWidth/2 - 350 , windowHeight/2 - 80)
   guru.addImage(guruI)
-  guru.scale = 1.6;
+  guru.scale = 1.7;
   
   hero = createSprite(windowWidth/2 - 115 , windowHeight/2 - 160)
   hero.addImage(heroI)
