@@ -113,9 +113,5 @@ class Form {
 
       rules.reappear();
     })
-
-
-    
-
   }
 }
