@@ -48,7 +48,7 @@ class Form {
 
   display(){
     //this.input.setAttribute("type", "email");
-    this.input.position(windowWidth/2 - 100 , height - 400);
+    this.input.position(windowWidth/2 - 70 , height - 360);
     
 
     this.play.position(windowWidth/2 - 90, windowHeight/2 + 70);
