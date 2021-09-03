@@ -34,13 +34,13 @@ function setup(){
   //rules = new Rules()
 
 
-  title = createSprite(windowWidth/2 + 20 , windowHeight/2 - 280)
+  title = createSprite(windowWidth/2 + 20 , windowHeight/2 - 250)
   title.addImage(titleI)
   title.scale = 1.8;
   
   guru = createSprite(windowWidth/2 - 350 , windowHeight/2 - 80)
   guru.addImage(guruI)
-  guru.scale = 1.7;
+  guru.scale = 1.6;
   
   hero = createSprite(windowWidth/2 - 115 , windowHeight/2 - 160)
   hero.addImage(heroI)
@@ -50,11 +50,11 @@ function setup(){
   heroin.addImage(heroinI)
   heroin.scale = 0.46;
 
-  song = createSprite(windowWidth/2 - 120 , windowHeight/2 - 40)
+  song = createSprite(windowWidth/2 - 120 , windowHeight/2 - 70)
   song.addImage(songI)
   song.scale = 0.35;
 
-  movie = createSprite(windowWidth/2 + 135 , windowHeight/2 - 60)
+  movie = createSprite(windowWidth/2 + 135 , windowHeight/2 - 90)
   movie.addImage(movieI)
   movie.scale = 0.45;
 
@@ -73,8 +73,8 @@ function draw(){
 
   if (gameState === 0){
     form.display()
-    line(windowWidth/2, windowHeight/2 - 230, windowWidth/2, windowHeight/2)
-    line(windowWidth/2 - 280, windowHeight/2 - 120, windowWidth/2 + 320, windowHeight/2 - 120)
+    line(windowWidth/2, windowHeight/2 - 200, windowWidth/2, windowHeight/2 - 30)
+    line(windowWidth/2 - 250, windowHeight/2 - 120, windowWidth/2 + 290, windowHeight/2 - 120)
    }  
   
    if(gameState === 1 ){
