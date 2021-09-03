@@ -24,7 +24,11 @@ class Form2 {
       this.saveGame = createButton("Save Your Game")
       
     }
-    
+    async updatePlayers(x){
+      await db.collection("Players") 
+     .where('email' ,'==', form.input.value()) 
+     .update({q_id: x})
+    }
   async getData(){
     var localdb = []
     await db.collection('Questions')
@@ -62,24 +66,24 @@ class Form2 {
     stroke("white")
     strokeWeight(3)
     textFont("Georgia")
-    text("Hero - ",displayWidth/2 - 300 , displayHeight/2 - 200)
-    this.hero.position(displayWidth/2 - 300 , displayHeight/2 - 150);
+    text("Hero - ",windowWidth/2 - 300 , windowHeight/2 - 200)
+    this.hero.position(windowWidth/2 - 300 , windowHeight/2 - 150);
     this.hero.size(250,25)
 
-    text("Heroine - ",displayWidth/2 + 50 , displayHeight/2 - 200)
-    this.heroine.position(displayWidth/2 + 50 , displayHeight/2 - 150);
+    text("Heroine - ",windowWidth/2 + 50 , windowHeight/2 - 200)
+    this.heroine.position(windowWidth/2 + 50 , windowHeight/2 - 150);
     this.heroine.size(250,25)
 
-    text("Song - ",displayWidth/2 - 300 , displayHeight/2 - 20)
-    this.song.position(displayWidth/2 - 300 , displayHeight/2 + 40);
+    text("Song - ",windowWidth/2 - 300 , windowHeight/2 - 20)
+    this.song.position(windowWidth/2 - 300 , windowHeight/2 + 40);
     this.song.size(250,25)
 
-    text("Movie - ",displayWidth/2 + 50 , displayHeight/2 - 20)
-    this.movie.position(displayWidth/2 + 50 , displayHeight/2 + 40);
+    text("Movie - ",windowWidth/2 + 50 , windowHeight/2 - 20)
+    this.movie.position(windowWidth/2 + 50 , windowHeight/2 + 40);
     this.movie.size(250,25)
     pop()
 
-    this.back.position(displayWidth/2 - 660, displayHeight/2 - 360);
+    this.back.position(windowWidth/2 - 660, windowHeight/2 - 360);
     this.back.style("color","purple")
 
     this.back.mousePressed(()=>{
@@ -103,7 +107,7 @@ class Form2 {
       }
     }
     
-    this.submit.position(displayWidth/2 + 520, displayHeight/2 + 120);
+    this.submit.position(windowWidth/2 + 520, windowHeight/2 + 120);
     this.submit.size(130,35);
     this.submit.mousePressed(async()=>{    
       answer = new Answers (this.hero.value(),this.heroine.value(),this.song.value(),this.movie.value()) 
@@ -122,7 +126,7 @@ class Form2 {
           console.log("works")
         },60000)
     }
-    this.saveGame.position(displayWidth/2 + 520, displayHeight/2 + 160)
+    this.saveGame.position(windowWidth/2 + 520, windowHeight/2 + 160)
   }
   
   displayQuestions(){
@@ -132,20 +136,20 @@ class Form2 {
     stroke("white")
     strokeWeight(3)
     textFont("Georgia")
-    text(this.questions.hero,(displayWidth/2 - 300)+170 , displayHeight/2 - 200)
-    this.hero.position(displayWidth/2 - 300 , displayHeight/2 - 150);
+    text(this.questions.hero,(windowWidth/2 - 300)+170 , windowHeight/2 - 200)
+    this.hero.position(windowWidth/2 - 300 , windowHeight/2 - 150);
     this.hero.size(250,25)
 
-    text(this.questions.heroine,(displayWidth/2 + 50)+250 , displayHeight/2 - 200)
-    this.heroine.position(displayWidth/2 + 50 , displayHeight/2 - 150);
+    text(this.questions.heroine,(windowWidth/2 + 50)+250 , windowHeight/2 - 200)
+    this.heroine.position(windowWidth/2 + 50 , windowHeight/2 - 150);
     this.heroine.size(250,25)
 
-    text(this.questions.song,(displayWidth/2 - 300)+170 , displayHeight/2 - 20)
-    this.song.position(displayWidth/2 - 300 , displayHeight/2 + 40);
+    text(this.questions.song,(windowWidth/2 - 300)+170 , windowHeight/2 - 20)
+    this.song.position(windowWidth/2 - 300 , windowHeight/2 + 40);
     this.song.size(250,25)
 
-    text(this.questions.movie,(displayWidth/2 + 50)+200 , displayHeight/2 - 20)
-    this.movie.position(displayWidth/2 + 50 , displayHeight/2 + 40);
+    text(this.questions.movie,(windowWidth/2 + 50)+200 , windowHeight/2 - 20)
+    this.movie.position(windowWidth/2 + 50 , windowHeight/2 + 40);
     this.movie.size(250,)
     
     pop()
@@ -153,16 +157,16 @@ class Form2 {
     fill(204, 36, 117)
     textSize(23);
     strokeWeight(1)
-    text(this.hints.hint1,displayWidth/2 - 670 , displayHeight/2 + 250)
-    text(this.hints.hint2,displayWidth/2 - 670 , displayHeight/2 + 300)
+    text(this.hints.hint1,windowWidth/2 - 670 , windowHeight/2 + 250)
+    text(this.hints.hint2,windowWidth/2 - 670 , windowHeight/2 + 300)
     
     textSize(35)
-    text("Trivia about the movie : ",displayWidth/2 - 660, displayHeight/2 + 200)
-    line(displayWidth/2, displayHeight/2 - 250, displayWidth/2, displayHeight/2 + 110)
-    line(displayWidth/2 - 340, displayHeight/2 - 80, displayWidth/2 + 365, displayHeight/2 - 80)
+    text("Trivia about the movie : ",windowWidth/2 - 660, windowHeight/2 + 200)
+    line(windowWidth/2, windowHeight/2 - 250, windowWidth/2, windowHeight/2 + 110)
+    line(windowWidth/2 - 340, windowHeight/2 - 80, windowWidth/2 + 365, windowHeight/2 - 80)
    
     
-      this.hint3.position(displayWidth/2 + 620 , displayHeight/2 - 200);
+      this.hint3.position(windowWidth/2 + 620 , windowHeight/2 - 200);
       this.hint3.style("color","purple")
       this.hint3.mousePressed(()=>{
         if(points >= 15){
@@ -173,10 +177,10 @@ class Form2 {
       })
       if (this.hintFlag === true){
         textSize(15);
-        text(this.hints.hint3,displayWidth/2 + 470 , displayHeight/2 - 200)
+        text(this.hints.hint3,windowWidth/2 + 470 , windowHeight/2 - 200)
       }
             
-      this.hint4.position(displayWidth/2 + 620 , displayHeight/2 - 160);
+      this.hint4.position(windowWidth/2 + 620 , windowHeight/2 - 160);
       this.hint4.style("color","purple")
       this.hint4.mousePressed(()=>{ 
         if(points>= 15){       
@@ -187,7 +191,7 @@ class Form2 {
       })
       if (this.hintFlag2 === true){
         textSize(15);
-        text(this.hints.hint4,displayWidth/2 + 470 , displayHeight/2 - 160)          
+        text(this.hints.hint4,windowWidth/2 + 470 , windowHeight/2 - 160)          
         }
       
   }

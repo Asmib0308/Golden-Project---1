@@ -11,7 +11,7 @@ class Settings {
   }
 
   display(){
-    this.back.position(displayWidth/2 - 660, displayHeight/2 - 360);
+    this.back.position(windowWidth/2 - 660, windowHeight/2 - 360);
     this.back.style("color","purple")
 
     this.back.mousePressed(()=>{

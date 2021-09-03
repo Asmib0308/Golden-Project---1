@@ -34,29 +34,29 @@ function setup(){
   //rules = new Rules()
 
 
-  title = createSprite(displayWidth/2 + 20 , displayHeight/2 - 300)
+  title = createSprite(windowWidth/2 + 20 , windowHeight/2 - 200)
   title.addImage(titleI)
-  title.scale = 2.1;
+  title.scale = 1.8;
   
-  guru = createSprite(displayWidth/2 - 350 , displayHeight/2 - 100)
+  guru = createSprite(windowWidth/2 - 350 , windowHeight/2 - 80)
   guru.addImage(guruI)
-  guru.scale = 1.8;
+  guru.scale = 1.6;
   
-  hero = createSprite(displayWidth/2 - 115 , displayHeight/2 - 180)
+  hero = createSprite(windowWidth/2 - 115 , windowHeight/2 - 160)
   hero.addImage(heroI)
-  hero.scale = 0.7;
+  hero.scale = 0.5;
 
-  heroin = createSprite(displayWidth/2 + 156 , displayHeight/2 - 190)
+  heroin = createSprite(windowWidth/2 + 156 , windowHeight/2 - 170)
   heroin.addImage(heroinI)
-  heroin.scale = 0.66;
+  heroin.scale = 0.46;
 
-  song = createSprite(displayWidth/2 - 120 , displayHeight/2 - 60)
+  song = createSprite(windowWidth/2 - 120 , windowHeight/2 - 40)
   song.addImage(songI)
-  song.scale = 0.55;
+  song.scale = 0.35;
 
-  movie = createSprite(displayWidth/2 + 135 , displayHeight/2 - 80)
+  movie = createSprite(windowWidth/2 + 135 , windowHeight/2 - 60)
   movie.addImage(movieI)
-  movie.scale = 0.65;
+  movie.scale = 0.45;
 
   
 }
@@ -69,12 +69,12 @@ function draw(){
   stroke(204, 36, 117)
   strokeWeight(1)
   fill(204, 36, 117)
-  text("Bolly coins : " + points,displayWidth/2 + 570, displayHeight/2 - 360)
+  text("Bolly coins : " + points,windowWidth/2 + 570, windowHeight/2 - 360)
 
   if (gameState === 0){
     form.display()
-    line(displayWidth/2, displayHeight/2 - 230, displayWidth/2, displayHeight/2)
-    line(displayWidth/2 - 280, displayHeight/2 - 120, displayWidth/2 + 320, displayHeight/2 - 120)
+    line(windowWidth/2, windowHeight/2 - 230, windowWidth/2, windowHeight/2)
+    line(windowWidth/2 - 280, windowHeight/2 - 120, windowWidth/2 + 320, windowHeight/2 - 120)
    }  
   
    if(gameState === 1 ){
@@ -104,4 +104,12 @@ function reset(){
   form2.show();
   points += 20;
   qid += 1;
+  form2.clickFlag = 0;
+  form2.updatePlayers(qid)
+}
+function keyPressed(){ 
+  if(keyCode === 13 ){
+     //form.createPlayer() 
+     form.addPlayer() 
+  }
 }

@@ -26,8 +26,13 @@ class Answers{
     }
     
     checkAnswers(){
-        var heroname = this.hero.toUpperCase().trim()
-        var dbHero = this.answers.hero.toUpperCase().trim()
+        var heroname = this.hero.toUpperCase().trim() 
+        heroname = heroname.replace(/\s/g, '') 
+        heroname = heroname.slice(0,7) 
+        var dbHero = this.answers.hero.toUpperCase().trim() 
+        dbHero = dbHero.replace(/\s/g, '') 
+        dbHero= dbHero.slice(0,7)
+
 
         if(dbHero===heroname){
             form2.hero.hide();    

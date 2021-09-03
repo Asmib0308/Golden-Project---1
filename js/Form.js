@@ -1,13 +1,12 @@
 class Form {
 
   constructor() {
-    this.input = createInput("Name");
+    this.input = createInput('Email');
     this.play = createButton('PLAY');
     this.settings = createButton('settings');
     this.rules = createButton('rules');
+    this.play.attribute('disabled','');
 
-    //this.index = null;
-    //this.name = null;
   }
    reappear(){
      this.play.show();
@@ -21,14 +20,38 @@ class Form {
      movie.visible = true;
    }
 
-   addPlayer(){
-    db.collection("Players").add({ "name": this.input.value(), "q_id": qid})
+   async addPlayer(){ 
+     //console.log(name) 
+     var email = this.input.value() 
+     var player =[] 
+     await db.collection("Players") 
+     .where('email' ,'==', email) 
+     .onSnapshot((snapshot)=>{ 
+       player = snapshot.docs.map((doc) => doc.data()) 
+       console.log(player) 
+       this.play.removeAttribute('disabled') 
+       if(player.length !== 0){ 
+         //this.createPlayer() 
+         
+         qid = player.q_id 
+      } 
+        else{ 
+          this.createPlayer()
+         } 
+        }); 
+      }
+
+
+   async createPlayer(){
+    await db.collection("Players").add({ "name": this.input.value(), "q_id": qid})
    }
 
   display(){
-    this.input.position(displayWidth/2 - 660 , displayHeight/2 - 330);
+    //this.input.setAttribute("type", "email");
+    this.input.position(windowWidth/2 - 100 , height - 400);
+    
 
-    this.play.position(displayWidth/2 - 90, displayHeight/2 + 70);
+    this.play.position(windowWidth/2 - 90, windowHeight/2 + 70);
     this.play.size(210,70)
     this.play.style("fontSize","large")
    
@@ -51,7 +74,7 @@ class Form {
        form2.back.show()
     })
         
-    this.settings.position(displayWidth/2 - 100, displayHeight/2 + 330)
+    this.settings.position(windowWidth/2 - 100, windowHeight/2 + 330)
     this.settings.size(60,40)
     this.settings.style("textSize",20)
 
@@ -71,7 +94,7 @@ class Form {
       settings.reappear()
     })
 
-    this.rules.position(displayWidth/2 + 100, displayHeight/2 + 330);
+    this.rules.position(windowWidth/2 + 100, windowHeight/2 + 330);
     this.rules.size(60,40)
     this.rules.style("textSize",20)
 
