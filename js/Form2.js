@@ -146,7 +146,7 @@ class Form2 {
         line(windowWidth/2 - 340, windowHeight/2 - 60, windowWidth/2 + 365, windowHeight/2 - 60)
 
 
-         this.hint3.position(windowWidth/2 + 370 , windowHeight/2 + 155);
+         this.hint3.position(windowWidth/2 + 370 , windowHeight/2 + 190);
          this.hint3.style("color","purple")
          this.hint3.mousePressed(()=>{
            if(points >= 15){
@@ -157,10 +157,10 @@ class Form2 {
          })
          if (this.hintFlag === true){
            textSize(15);
-           text(this.hints.hint3,windowWidth/2 + 370 , windowHeight/2 + 155)
+           text(this.hints.hint3,windowWidth/2 + 370 , windowHeight/2 + 195)
          }
 
-         this.hint4.position(windowWidth/2 + 370 , windowHeight/2 + 200)  ;
+         this.hint4.position(windowWidth/2 + 370 , windowHeight/2 + 220)  ;
          this.hint4.style("color","purple")
          this.hint4.mousePressed(()=>{ 
            if(points>= 15){       
@@ -171,7 +171,7 @@ class Form2 {
          })
          if (this.hintFlag2 === true){
            textSize(15);
-           text(this.hints.hint4,windowWidth/2 + 370 , windowHeight/2 + 180)            
+           text(this.hints.hint4,windowWidth/2 + 370 , windowHeight/2 + 225)            
          }
     }
     else{
