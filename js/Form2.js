@@ -59,23 +59,22 @@ class Form2 {
     stroke("white")
     strokeWeight(3)
     textFont("Georgia")
-    text("Hero - ",displayWidth/2 - 300 , displayHeight/2 - 200)
-    this.hero.position(displayWidth/2 - 300 , displayHeight/2 - 150);
-    this.hero.size(200,20)
+    text("Hero - ",windowWidth/2 - 300 , windowHeight/2 - 140)
+    this.hero.position(windowWidth/2 - 300 , windowHeight/2 - 150);
+    this.hero.size(250,25)
 
-    text("Heroine - ",displayWidth/2 + 50 , displayHeight/2 - 200)
-    this.heroine.position(displayWidth/2 + 50 , displayHeight/2 - 150);
-    this.heroine.size(200,20)
+    text("Heroine - ",windowWidth/2 + 50 , windowHeight/2 - 140)
+    this.heroine.position(windowWidth/2 + 50 , windowHeight/2 - 150);
+    this.heroine.size(250,25)
 
-    text("Song - ",displayWidth/2 - 300 , displayHeight/2 - 20)
-    this.song.position(displayWidth/2 - 300 , displayHeight/2 + 40);
-    this.song.size(200,20)
+    text("Song - ",windowWidth/2 - 300 , windowHeight/2)
+    this.song.position(windowWidth/2 - 300 , windowHeight/2 + 40);
+    this.song.size(250,25)
 
-    text("Movie - ",displayWidth/2 + 50 , displayHeight/2 - 20)
-    this.movie.position(displayWidth/2 + 50 , displayHeight/2 + 40);
-    this.movie.size(200,20)
+    text("Movie - ",windowWidth/2 + 50 , windowHeight/2)
+    this.movie.position(windowWidth/2 + 50 , windowHeight/2 + 40);
+    this.movie.size(250,25)
     pop()
-
 
     for (var q_id in this.localdb){
       if(qid === this.localdb[q_id].q_id ){
@@ -84,7 +83,7 @@ class Form2 {
       }
     }
     
-    this.submit.position(displayWidth/2 + 520, displayHeight/2 + 120);
+    this.submit.position(displayWidth/2 + 370, displayHeight/2 + 120);
     this.submit.size(130,35);
     this.submit.mousePressed(async()=>{    
       answer = new Answers (this.hero.value(),this.heroine.value(),this.song.value(),this.movie.value()) 
@@ -104,7 +103,7 @@ class Form2 {
           console.log("works")
         },60000)
     }
-    this.saveGame.position(displayWidth/2 + 520, displayHeight/2 + 160)
+    this.saveGame.position(displayWidth/2 + 370, displayHeight/2 + 160)
     this.saveGame.mousePressed(async()=>{   
       form.update(qid)
      })
@@ -147,7 +146,7 @@ class Form2 {
     line(displayWidth/2 - 340, displayHeight/2 - 80, displayWidth/2 + 365, displayHeight/2 - 80)
    
     
-      this.hint3.position(displayWidth/2 + 620 , displayHeight/2 - 200);
+      this.hint3.position(windowWidth/2 + 370 , windowHeight/2 - 80);
       this.hint3.style("color","purple")
       this.hint3.mousePressed(()=>{
         if(points >= 15){
@@ -158,10 +157,10 @@ class Form2 {
       })
       if (this.hintFlag === true){
         textSize(15);
-        text(this.hints.hint3,displayWidth/2 + 470 , displayHeight/2 - 200)
+        text(this.hints.hint3,windowWidth/2 + 370 , windowHeight/2 - 80)
       }
             
-      this.hint4.position(displayWidth/2 + 620 , displayHeight/2 - 160);
+      this.hint4.position(windowWidth/2 + 370 , windowHeight/2 - 50)  ;
       this.hint4.style("color","purple")
       this.hint4.mousePressed(()=>{ 
         if(points>= 15){       
@@ -172,7 +171,7 @@ class Form2 {
       })
       if (this.hintFlag2 === true){
         textSize(15);
-        text(this.hints.hint4,displayWidth/2 + 470 , displayHeight/2 - 160)          
+        text(this.hints.hint4,windowWidth/2 + 370 , windowHeight/2 - 50)            
         }
       
   }
