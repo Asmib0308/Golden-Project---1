@@ -110,68 +110,72 @@ class Form2 {
   }
   
   displayQuestions(){
-    push()
-    textSize(50);
-    fill(197, 57, 125);
-    stroke("white")
-    strokeWeight(3)
-    textFont("Georgia")
-    text(this.questions.hero,(windowWidth/2 - 300)+170 , windowHeight/2 - 140)
-    this.hero.position(windowWidth/2 - 300 , windowHeight/2 - 120);
-    this.hero.size(250,25)
+    if(qid !== this.questions.length){  
+        push()
+        textSize(50);
+        fill(197, 57, 125);
+        stroke("white")
+        strokeWeight(3)
+        textFont("Georgia")
+        text(this.questions.hero,(windowWidth/2 - 300)+170 , windowHeight/2 - 140)
+        this.hero.position(windowWidth/2 - 300 , windowHeight/2 - 120);
+        this.hero.size(250,25)
 
-    text(this.questions.heroine,(windowWidth/2 + 50)+250 , windowHeight/2 - 140)
-    this.heroine.position(windowWidth/2 + 50 , windowHeight/2 - 120);
-    this.heroine.size(250,25)
+        text(this.questions.heroine,(windowWidth/2 + 50)+250 , windowHeight/2 - 140)
+        this.heroine.position(windowWidth/2 + 50 , windowHeight/2 - 120);
+        this.heroine.size(250,25)
 
-    text(this.questions.song,(windowWidth/2 - 300)+170 , windowHeight/2)
-    this.song.position(windowWidth/2 - 300 , windowHeight/2 + 30);
-    this.song.size(250,25)
+        text(this.questions.song,(windowWidth/2 - 300)+170 , windowHeight/2)
+        this.song.position(windowWidth/2 - 300 , windowHeight/2 + 30);
+        this.song.size(250,25)
 
-    text(this.questions.movie,(windowWidth/2 + 50)+200 , windowHeight/2)
-    this.movie.position(windowWidth/2 + 50 , windowHeight/2 + 30);
-    this.movie.size(250,)
-    
-    pop()
-    
-    fill(204, 36, 117)
-    textSize(25)
-    text("Trivia about the movie : ",displayWidth/2 - 660, displayHeight/2 + 120)
-    textSize(17);
-    text(this.hints.hint1,displayWidth/2 - 670 , displayHeight/2 + 155)
-    text(this.hints.hint2,displayWidth/2 - 670 , displayHeight/2 + 180)
-         
-    line(windowWidth/2, windowHeight/2 - 200, windowWidth/2, windowHeight/2 + 100)
-    line(windowWidth/2 - 340, windowHeight/2 - 60, windowWidth/2 + 365, windowHeight/2 - 60)
-   
-    
-      this.hint3.position(windowWidth/2 + 370 , windowHeight/2 + 160);
-      this.hint3.style("color","purple")
-      this.hint3.mousePressed(()=>{
-        if(points >= 15){
-          this.hint3.hide()
-          points = points - 15
-          this.hintFlag = true        
-        }  
-      })
-      if (this.hintFlag === true){
-        textSize(15);
-        text(this.hints.hint3,windowWidth/2 + 370 , windowHeight/2 + 160)
-      }
-            
-      this.hint4.position(windowWidth/2 + 370 , windowHeight/2 + 180)  ;
-      this.hint4.style("color","purple")
-      this.hint4.mousePressed(()=>{ 
-        if(points>= 15){       
-          this.hint4.hide() 
-          points = points - 15 
-          this.hintFlag2 = true    
-        }
-      })
-      if (this.hintFlag2 === true){
-        textSize(15);
-        text(this.hints.hint4,windowWidth/2 + 370 , windowHeight/2 + 180)            
-        }
-      
+        text(this.questions.movie,(windowWidth/2 + 50)+200 , windowHeight/2)
+        this.movie.position(windowWidth/2 + 50 , windowHeight/2 + 30);
+        this.movie.size(250,)
+
+        pop()
+
+        fill(204, 36, 117)
+        textSize(25)
+        text("Trivia about the movie : ",displayWidth/2 - 660, displayHeight/2 + 120)
+        textSize(17);
+        text(this.hints.hint1,displayWidth/2 - 670 , displayHeight/2 + 155)
+        text(this.hints.hint2,displayWidth/2 - 670 , displayHeight/2 + 180)
+
+        line(windowWidth/2, windowHeight/2 - 200, windowWidth/2, windowHeight/2 + 100)
+        line(windowWidth/2 - 340, windowHeight/2 - 60, windowWidth/2 + 365, windowHeight/2 - 60)
+
+
+         this.hint3.position(windowWidth/2 + 370 , windowHeight/2 + 160);
+         this.hint3.style("color","purple")
+         this.hint3.mousePressed(()=>{
+           if(points >= 15){
+             this.hint3.hide()
+             points = points - 15
+             this.hintFlag = true        
+           }  
+         })
+         if (this.hintFlag === true){
+           textSize(15);
+           text(this.hints.hint3,windowWidth/2 + 370 , windowHeight/2 + 160)
+         }
+
+         this.hint4.position(windowWidth/2 + 370 , windowHeight/2 + 180)  ;
+         this.hint4.style("color","purple")
+         this.hint4.mousePressed(()=>{ 
+           if(points>= 15){       
+             this.hint4.hide() 
+             points = points - 15 
+             this.hintFlag2 = true    
+           }
+         })
+         if (this.hintFlag2 === true){
+           textSize(15);
+           text(this.hints.hint4,windowWidth/2 + 370 , windowHeight/2 + 180)            
+         }
+    }
+    else{
+     gameState = 2;
+    }  
   }
 }
