@@ -83,7 +83,7 @@ class Form2 {
       }
     }
     
-    this.submit.position(displayWidth/2 + 370, displayHeight/2 + 50);
+    this.submit.position(displayWidth/2 + 370, displayHeight/2 + 20);
     this.submit.size(130,35);
     this.submit.mousePressed(async()=>{    
       answer = new Answers (this.hero.value(),this.heroine.value(),this.song.value(),this.movie.value()) 
@@ -103,7 +103,7 @@ class Form2 {
           console.log("works")
         },60000)
     }
-    this.saveGame.position(displayWidth/2 + 370, displayHeight/2 + 80)
+    this.saveGame.position(displayWidth/2 + 370, displayHeight/2 + 60)
     this.saveGame.mousePressed(async()=>{   
       form.update(qid)
      })
@@ -146,7 +146,7 @@ class Form2 {
         line(windowWidth/2 - 340, windowHeight/2 - 60, windowWidth/2 + 365, windowHeight/2 - 60)
 
 
-         this.hint3.position(windowWidth/2 + 370 , windowHeight/2 + 160);
+         this.hint3.position(windowWidth/2 + 370 , windowHeight/2 + 180);
          this.hint3.style("color","purple")
          this.hint3.mousePressed(()=>{
            if(points >= 15){
@@ -157,10 +157,10 @@ class Form2 {
          })
          if (this.hintFlag === true){
            textSize(15);
-           text(this.hints.hint3,windowWidth/2 + 370 , windowHeight/2 + 160)
+           text(this.hints.hint3,windowWidth/2 + 370 , windowHeight/2 + 180)
          }
 
-         this.hint4.position(windowWidth/2 + 370 , windowHeight/2 + 180)  ;
+         this.hint4.position(windowWidth/2 + 370 , windowHeight/2 + 200)  ;
          this.hint4.style("color","purple")
          this.hint4.mousePressed(()=>{ 
            if(points>= 15){       
@@ -171,7 +171,7 @@ class Form2 {
          })
          if (this.hintFlag2 === true){
            textSize(15);
-           text(this.hints.hint4,windowWidth/2 + 370 , windowHeight/2 + 180)            
+           text(this.hints.hint4,windowWidth/2 + 370 , windowHeight/2 + 200)            
          }
     }
     else{
