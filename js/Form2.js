@@ -111,25 +111,25 @@ class Form2 {
   
   displayQuestions(){
     push()
-    textSize(60);
+    textSize(50);
     fill(197, 57, 125);
     stroke("white")
     strokeWeight(3)
     textFont("Georgia")
-    text(this.questions.hero,(displayWidth/2 - 300)+170 , displayHeight/2 - 140)
-    this.hero.position(displayWidth/2 - 300 , displayHeight/2 - 150);
+    text(this.questions.hero,(windowWidth/2 - 300)+170 , windowHeight/2 - 140)
+    this.hero.position(windowWidth/2 - 300 , windowHeight/2 - 120);
     this.hero.size(250,25)
 
-    text(this.questions.heroine,(displayWidth/2 + 50)+250 , displayHeight/2 - 140)
-    this.heroine.position(displayWidth/2 + 50 , displayHeight/2 - 150);
+    text(this.questions.heroine,(windowWidth/2 + 50)+250 , windowHeight/2 - 140)
+    this.heroine.position(windowWidth/2 + 50 , windowHeight/2 - 120);
     this.heroine.size(250,25)
 
-    text(this.questions.song,(displayWidth/2 - 300)+170 , displayHeight/2 - 40)
-    this.song.position(displayWidth/2 - 300 , displayHeight/2 + 40);
+    text(this.questions.song,(windowWidth/2 - 300)+170 , windowHeight/2)
+    this.song.position(windowWidth/2 - 300 , windowHeight/2 + 30);
     this.song.size(250,25)
 
-    text(this.questions.movie,(displayWidth/2 + 50)+200 , displayHeight/2 - 40)
-    this.movie.position(displayWidth/2 + 50 , displayHeight/2 + 40);
+    text(this.questions.movie,(windowWidth/2 + 50)+200 , windowHeight/2)
+    this.movie.position(windowWidth/2 + 50 , windowHeight/2 + 30);
     this.movie.size(250,)
     
     pop()
@@ -142,8 +142,8 @@ class Form2 {
     
     textSize(22)
     text("Trivia about the movie : ",displayWidth/2 - 660, displayHeight/2 + 150)
-    line(displayWidth/2, displayHeight/2 - 250, displayWidth/2, displayHeight/2 + 110)
-    line(displayWidth/2 - 340, displayHeight/2 - 80, displayWidth/2 + 365, displayHeight/2 - 80)
+    line(windowWidth/2, windowHeight/2 - 200, windowWidth/2, windowHeight/2 + 100)
+    line(windowWidth/2 - 340, windowHeight/2 - 60, windowWidth/2 + 365, windowHeight/2 - 60)
    
     
       this.hint3.position(windowWidth/2 + 370 , windowHeight/2 - 80);
