@@ -138,7 +138,7 @@ class Form2 {
     textSize(25)
     text("Trivia about the movie : ",displayWidth/2 - 660, displayHeight/2 + 120)
     textSize(17);
-    text(this.hints.hint1,displayWidth/2 - 670 , displayHeight/2 + 160)
+    text(this.hints.hint1,displayWidth/2 - 670 , displayHeight/2 + 155)
     text(this.hints.hint2,displayWidth/2 - 670 , displayHeight/2 + 180)
          
     line(windowWidth/2, windowHeight/2 - 200, windowWidth/2, windowHeight/2 + 100)
