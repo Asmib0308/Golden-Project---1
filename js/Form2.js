@@ -160,7 +160,7 @@ class Form2 {
            text(this.hints.hint3,windowWidth/2 + 370 , windowHeight/2 + 155)
          }
 
-         this.hint4.position(windowWidth/2 + 370 , windowHeight/2 + 180)  ;
+         this.hint4.position(windowWidth/2 + 370 , windowHeight/2 + 200)  ;
          this.hint4.style("color","purple")
          this.hint4.mousePressed(()=>{ 
            if(points>= 15){       
