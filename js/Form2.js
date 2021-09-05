@@ -116,19 +116,19 @@ class Form2 {
     stroke("white")
     strokeWeight(3)
     textFont("Georgia")
-    text(this.questions.hero,(displayWidth/2 - 300)+170 , displayHeight/2 - 200)
+    text(this.questions.hero,(displayWidth/2 - 300)+170 , displayHeight/2 - 140)
     this.hero.position(displayWidth/2 - 300 , displayHeight/2 - 150);
     this.hero.size(250,25)
 
-    text(this.questions.heroine,(displayWidth/2 + 50)+250 , displayHeight/2 - 200)
+    text(this.questions.heroine,(displayWidth/2 + 50)+250 , displayHeight/2 - 140)
     this.heroine.position(displayWidth/2 + 50 , displayHeight/2 - 150);
     this.heroine.size(250,25)
 
-    text(this.questions.song,(displayWidth/2 - 300)+170 , displayHeight/2 - 20)
+    text(this.questions.song,(displayWidth/2 - 300)+170 , displayHeight/2 - 40)
     this.song.position(displayWidth/2 - 300 , displayHeight/2 + 40);
     this.song.size(250,25)
 
-    text(this.questions.movie,(displayWidth/2 + 50)+200 , displayHeight/2 - 20)
+    text(this.questions.movie,(displayWidth/2 + 50)+200 , displayHeight/2 - 40)
     this.movie.position(displayWidth/2 + 50 , displayHeight/2 + 40);
     this.movie.size(250,)
     
