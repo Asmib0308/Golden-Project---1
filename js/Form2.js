@@ -135,13 +135,13 @@ class Form2 {
     pop()
     
     fill(204, 36, 117)
-    textSize(23);
+    textSize(15);
     strokeWeight(1)
-    text(this.hints.hint1,displayWidth/2 - 670 , displayHeight/2 + 250)
-    text(this.hints.hint2,displayWidth/2 - 670 , displayHeight/2 + 300)
+    text(this.hints.hint1,displayWidth/2 - 670 , displayHeight/2 + 190)
+    text(this.hints.hint2,displayWidth/2 - 670 , displayHeight/2 + 230)
     
-    textSize(35)
-    text("Trivia about the movie : ",displayWidth/2 - 660, displayHeight/2 + 200)
+    textSize(22)
+    text("Trivia about the movie : ",displayWidth/2 - 660, displayHeight/2 + 150)
     line(displayWidth/2, displayHeight/2 - 250, displayWidth/2, displayHeight/2 + 110)
     line(displayWidth/2 - 340, displayHeight/2 - 80, displayWidth/2 + 365, displayHeight/2 - 80)
    
