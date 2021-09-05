@@ -83,7 +83,7 @@ class Form2 {
       }
     }
     
-    this.submit.position(displayWidth/2 + 370, displayHeight/2 + 20);
+    this.submit.position(windowWidth/2 + 370, windowHeight/2 + 20);
     this.submit.size(130,35);
     this.submit.mousePressed(async()=>{    
       answer = new Answers (this.hero.value(),this.heroine.value(),this.song.value(),this.movie.value()) 
@@ -103,7 +103,7 @@ class Form2 {
           console.log("works")
         },60000)
     }
-    this.saveGame.position(displayWidth/2 + 370, displayHeight/2 + 60)
+    this.saveGame.position(windowWidth/2 + 370, windowHeight/2 + 60)
     this.saveGame.mousePressed(async()=>{   
       form.update(qid)
      })
@@ -137,10 +137,10 @@ class Form2 {
 
         fill(204, 36, 117)
         textSize(25)
-        text("Trivia about the movie : ",displayWidth/2 - 660, displayHeight/2 + 120)
+        text("Trivia about the movie : ",windowWidth/2 - 660, windowHeight/2 + 120)
         textSize(17);
-        text(this.hints.hint1,displayWidth/2 - 670 , displayHeight/2 + 155)
-        text(this.hints.hint2,displayWidth/2 - 670 , displayHeight/2 + 180)
+        text(this.hints.hint1,windowWidth/2 - 670 , windowHeight/2 + 155)
+        text(this.hints.hint2,windowWidth/2 - 670 , windowHeight/2 + 180)
 
         line(windowWidth/2, windowHeight/2 - 200, windowWidth/2, windowHeight/2 + 100)
         line(windowWidth/2 - 340, windowHeight/2 - 60, windowWidth/2 + 365, windowHeight/2 - 60)
