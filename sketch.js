@@ -11,7 +11,7 @@ var hero, heroin, song, movie;
 var points = 30;
 var db
 var id
-
+var resultPlayers = []
 var userId 
 
 var answerFlag = 0;
@@ -83,7 +83,11 @@ function draw(){
     form2.getDataHints()
     form2.displayQuestions()    
   }
-
+  
+  if(gameState === 2){
+    end()
+  }
+  
   if (answerFlag === 4){
     answerFlag = 0;
     reset();
@@ -146,9 +150,9 @@ async  function checkPlayer(id){
       }  
     }
     //First player
-    if(this.localPlayer.length=== 0){   
+   /* if(this.localPlayer.length=== 0){   
       playerExists = false
-    }
+    }*/
   })
 }
 
@@ -158,4 +162,21 @@ async function addPlayer(){
       await db.collection("Players").add({email:emailID,q_id:qid})
       //playerExists = true
     }      
+}
+
+function end(){
+  swal(
+      {
+        title: `Game Over!!!`,
+        text: "Thanks for playing!!",
+        imageUrl:"",
+        imageSize: "50x50",
+        confirmButtonText: "Play Again"
+      },
+      function(isConfirm) {
+        if (isConfirm) {
+          location.reload();
+        }
+      }
+    );
 }
