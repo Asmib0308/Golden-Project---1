@@ -135,18 +135,17 @@ class Form2 {
     pop()
     
     fill(204, 36, 117)
-    textSize(15);
-    strokeWeight(1)
-    text(this.hints.hint1,displayWidth/2 - 670 , displayHeight/2 + 190)
-    text(this.hints.hint2,displayWidth/2 - 670 , displayHeight/2 + 230)
-    
-    textSize(22)
-    text("Trivia about the movie : ",displayWidth/2 - 660, displayHeight/2 + 150)
+    textSize(25)
+    text("Trivia about the movie : ",displayWidth/2 - 660, displayHeight/2 + 120)
+    textSize(17);
+    text(this.hints.hint1,displayWidth/2 - 670 , displayHeight/2 + 150)
+    text(this.hints.hint2,displayWidth/2 - 670 , displayHeight/2 + 210)
+         
     line(windowWidth/2, windowHeight/2 - 200, windowWidth/2, windowHeight/2 + 100)
     line(windowWidth/2 - 340, windowHeight/2 - 60, windowWidth/2 + 365, windowHeight/2 - 60)
    
     
-      this.hint3.position(windowWidth/2 + 370 , windowHeight/2 - 80);
+      this.hint3.position(windowWidth/2 + 370 , windowHeight/2 + 70);
       this.hint3.style("color","purple")
       this.hint3.mousePressed(()=>{
         if(points >= 15){
@@ -157,10 +156,10 @@ class Form2 {
       })
       if (this.hintFlag === true){
         textSize(15);
-        text(this.hints.hint3,windowWidth/2 + 370 , windowHeight/2 - 80)
+        text(this.hints.hint3,windowWidth/2 + 370 , windowHeight/2 + 70)
       }
             
-      this.hint4.position(windowWidth/2 + 370 , windowHeight/2 - 50)  ;
+      this.hint4.position(windowWidth/2 + 370 , windowHeight/2 + 100)  ;
       this.hint4.style("color","purple")
       this.hint4.mousePressed(()=>{ 
         if(points>= 15){       
@@ -171,7 +170,7 @@ class Form2 {
       })
       if (this.hintFlag2 === true){
         textSize(15);
-        text(this.hints.hint4,windowWidth/2 + 370 , windowHeight/2 - 50)            
+        text(this.hints.hint4,windowWidth/2 + 370 , windowHeight/2 + 100)            
         }
       
   }
