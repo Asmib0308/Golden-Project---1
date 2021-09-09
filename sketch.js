@@ -13,7 +13,6 @@ var db
 var id
 var resultPlayers = []
 var userId 
-
 var answerFlag = 0;
 
 function preload(){
@@ -94,8 +93,7 @@ function draw(){
   }
 
   if(playerExists === false){
-    db.collection("Players").add({email:form.input.value(),q_id:qid})
-    playerExists = true
+    addPlayer()
   }
 
   drawSprites();
@@ -112,12 +110,9 @@ function keyPressed(){
   if(keyCode === 13 && gameState === 0){
     userId = form.input.value()
     if(userId!==''){
-      console.log(userId)
       if(form.validation(userId)){
- 
-        checkPlayer(userId)
-        if(playerExists!== undefined){
-          addPlayer()
+        if(!checkPlayer(userId)){
+          addPlayer()      
         }
       }  
     }
@@ -128,41 +123,39 @@ function keyPressed(){
 }
 
 async  function checkPlayer(id){ 
-  
+  var localPlayer = []
   //Reading players from database to check if a player already exists
   await db.collection('Players')
           .onSnapshot((snapshot) => {
             var players = snapshot.docs.map((document) => document.data());
-    this.localPlayer = players
-  
-    if(this.localPlayer.length!== 0){     
-      for (var q_id in this.localPlayer){
-      
-        if(id === this.localPlayer[q_id].email ){
-          resultPlayers[0] = this.localPlayer[q_id]
-          qid = resultPlayers[0].q_id 
-          playerExists= true            
-        }
-        //if email id are not equal , creating a new players
-        if(id !== this.localPlayer[q_id].email ){
-          playerExists = false
-        }
-      }  
+    localPlayer = players
+    
+    //if data avl in players collection
+    if(localPlayer.length!== 0){     
+      for (var q_id in localPlayer){
+        //push the data with matching email ids
+        if(id === localPlayer[q_id].email ){
+          resultPlayers[0] = localPlayer[q_id]  
+          
+        }  
     }
-    //First player
-   /* if(this.localPlayer.length=== 0){   
-      playerExists = false
-    }*/
+    
+    // Code when a player exists in database and when its a new player
+    if(resultPlayers.length!==0){
+      qid = resultPlayers[0].q_id 
+      playerExists= true                
+    }
+    else{
+      playerExists = false;   
+    }
+    }  
   })
 }
-
 async function addPlayer(){
     //Adding a player
-    if(playerExists === false){
-      await db.collection("Players").add({email:emailID,q_id:qid})
-      //playerExists = true
-    }      
-}
+      await db.collection("Players").add({email:userId,q_id:qid})
+      playerExists = true
+ }
 
 function end(){
   swal(
