@@ -144,10 +144,10 @@ hide(){
 
         fill(204, 36, 117)
         textSize(25)
-        text("Trivia about the movie : ",windowWidth/2 - 660, windowHeight/2 + 120)
+        text("Trivia about the movie : ",windowWidth/2 - 660, windowHeight/2 + 160)
         textSize(17);
-        text(this.hints.hint1,windowWidth/2 - 670 , windowHeight/2 + 155)
-        text(this.hints.hint2,windowWidth/2 - 670 , windowHeight/2 + 180)
+        text(this.hints.hint1,windowWidth/2 - 670 , windowHeight/2 + 195)
+        text(this.hints.hint2,windowWidth/2 - 670 , windowHeight/2 + 225)
 
         line(windowWidth/2, windowHeight/2 - 200, windowWidth/2, windowHeight/2 + 100)
         line(windowWidth/2 - 340, windowHeight/2 - 60, windowWidth/2 + 365, windowHeight/2 - 60)
