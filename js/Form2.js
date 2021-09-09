@@ -1,5 +1,4 @@
 class Form2 {
-
     constructor() {
       
       this.submit = createButton("SUBMIT")
@@ -21,35 +20,43 @@ class Form2 {
       this.saveGame = createButton("Save Your Game")
       
     }
-    
-  async getData(){
+       
+async getData(){
     var localdb = []
     await db.collection('Questions')
-            .onSnapshot((snapshot) => {
-              var questions = snapshot.docs.map((document) => document.data());
-      this.localdb = questions
-      
-    });  
-  }
-  async getDataHints(){
+    .onSnapshot((snapshot) => {
+    var questions = snapshot.docs.map((document) => document.data());
+    this.localdb = questions
+
+});  
+}
+async getDataHints(){
     var hints = []
     await db.collection("Hints")
-      .where('h_id' ,'==', qid)
-      .onSnapshot((snapshot)=>{
-        hints = snapshot.docs.map((doc) => doc.data())
-         
-         this.localdb2 = hints
-         this.hints = this.localdb2[0]
-      }) 
-  }
-  
+    .where('h_id' ,'==', qid)
+    .onSnapshot((snapshot)=>{
+    hints = snapshot.docs.map((doc) => doc.data())
 
-  show(){
+    this.localdb2 = hints
+    this.hints = this.localdb2[0]
+  }) 
+}
+show(){
     this.hero.show();
     this.heroine.show();
     this.song.show();
     this.movie.show();
-  }
+}
+hide(){
+    this.hero.hide();
+    this.heroine.hide();
+    this.song.hide();
+    this.movie.hide();
+    this.submit.hide()
+    this.saveGame.hide()
+    this.hint3.hide()
+    this.hint4.hide()
+}
   
   display(){
     
@@ -105,7 +112,7 @@ class Form2 {
     }
     this.saveGame.position(windowWidth/2 + 370, windowHeight/2 + 60)
     this.saveGame.mousePressed(async()=>{   
-      form.update(qid)
+      form.update(userId)
      })
   }
   
