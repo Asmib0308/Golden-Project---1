@@ -4,10 +4,15 @@ class Form {
     this.play = createButton('PLAY');
    
     this.play.attribute('disabled','');  
-    this.localPlayer = []    
-    this.resultPlayers = []
   }
-  
+  reappear(){
+    this.play.show();
+    this.input.show();     
+    hero.visible = true;
+    heroin.visible = true;
+    song.visible = true;
+    movie.visible = true;
+  }
   display(){
     this.input.position(windowWidth/2 - 68 , windowHeight/2 + 30);
 
@@ -26,8 +31,6 @@ class Form {
   hide(){
     this.input.hide();
     this.play.hide();
-    
-
     hero.visible = false;
     heroin.visible = false;
     song.visible = false;
@@ -41,20 +44,26 @@ class Form {
       return true;
     }
     else{
-      alert("You have entered an invalid email address!");    //The pop up alert for an invalid email address
-    
+      alert("You have entered an invalid email address!");    //The pop up alert for an invalid email address    
       return false;
     }
   }
   
   async update(id){
-
-    const q = await db.collection("Players").where(email ,'==', id)
-    console.log(q)
-
-    const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-      console.log(doc.id);
-    })
+    var doc_id 
+    await db.collection("Players").where("email", "==", id)
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            console.log(doc.id, " => ", doc.data());
+            doc_id = doc.id
+            db.collection("Players").doc(doc_id).update({q_id: qid});
+        });
+   })
+   if(form2){
+     form.reappear()
+     form2.hide()
+     gameState = 0
+   }
   }
 }
