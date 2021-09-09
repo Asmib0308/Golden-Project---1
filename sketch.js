@@ -35,9 +35,9 @@ function setup(){
   title.addImage(titleI)
   title.scale = 1.8;
   
-  guru = createSprite(windowWidth/2 - 250 , windowHeight/2 - 80)
+  guru = createSprite(windowWidth/2 - 250 , windowHeight/2 - 70)
   guru.addImage(guruI)
-  guru.scale = 1.6;
+  guru.scale = 1.3;
   
   hero = createSprite(windowWidth/2 - 115 , windowHeight/2 - 160)
   hero.addImage(heroI)
